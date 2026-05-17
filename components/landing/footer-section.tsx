@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import Link from "next/link";
 
 export function FooterSection() {
@@ -9,7 +10,7 @@ export function FooterSection() {
       <div className="layout-shell relative flex min-h-screen flex-col justify-between py-10 md:py-14">
         <div className="grid gap-10 lg:grid-cols-[1fr_280px]">
           <div className="space-y-8 pt-10 md:pt-16 lg:pl-16">
-            <h2 className="max-w-[780px] text-4xl font-black uppercase leading-[0.96] text-[#D9DDEF] md:text-6xl lg:text-7xl">
+            <h2 className="max-w-195 text-4xl font-black uppercase leading-[0.96] text-[#D9DDEF] md:text-6xl lg:text-7xl">
               One operating system for AI agent labor.
             </h2>
           </div>

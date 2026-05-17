@@ -33,6 +33,7 @@ function NavContent({ compact = false }: NavProps) {
     const root = document.documentElement;
     const savedTheme = window.localStorage.getItem("orynt-theme-mode");
     const nextTheme = savedTheme === "light" ? "light" : "dark";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setThemeMode(nextTheme);
 
     if (nextTheme === "light") {
@@ -220,7 +221,7 @@ export function OryntLeftSidebar() {
           aria-label="Go to LP"
           className="group inline-flex items-center gap-3"
         >
-          <span className="relative flex h-12 w-12 items-center justify-center  bg-card/40 p-1 shadow-sm transition-colors group-hover:border-foreground/40">
+          <span className="relative flex h-12 w-12 items-center justify-center  bg-card/40 p-1 transition-colors group-hover:border-foreground/40">
             <Image
               src="/orynt-mark.png"
               alt="Orynt mark"
@@ -236,13 +237,13 @@ export function OryntLeftSidebar() {
           </span>
         </Link>
         <Sheet>
-          <SheetTrigger asChild>
+          <SheetTrigger asChild className="border-none p-0 m-0">
             <Button
               variant="outline"
               aria-label="Open document navigation"
-              className="h-9 w-9 px-0"
+              className="h-12 w-12 rounded-full! p-0 m-0 border-none"
             >
-              <Menu className="h-4 w-4" />
+              <Menu className="h-10! w-10!" />
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-[86vw] p-0 sm:max-w-sm">

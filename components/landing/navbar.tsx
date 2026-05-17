@@ -18,7 +18,7 @@ export function Navbar() {
           aria-label="Go to top"
           className="group inline-flex items-center gap-3"
         >
-          <span className="relative flex h-12 w-12 items-center justify-center  bg-card/40 p-1 shadow-sm transition-colors group-hover:border-foreground/40">
+          <span className="relative flex h-12 w-12 items-center justify-center  bg-card/40 p-1 transition-colors group-hover:border-foreground/40">
             <Image
               src="/orynt-mark.png"
               alt="Orynt mark"
