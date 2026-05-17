@@ -1,26 +1,144 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --background: #101214;
+  --foreground: #ced2e2;
+  --primary: #ced2e2;
+  --secondary: #9fa2af;
+  --accent: #b7c0cc;
+  --link: #b7c0cc;
+  --text-primary: #ced2e2;
+  --text-secondary: #9fa2af;
+  --text-dim: color-mix(in srgb, var(--text-primary) 55%, transparent);
+  --text-faint: color-mix(in srgb, var(--text-primary) 38%, transparent);
+  --surface-1: color-mix(in srgb, var(--background) 88%, white);
+  --surface-2: color-mix(in srgb, var(--background) 76%, white);
+  --surface-3: color-mix(in srgb, var(--background) 64%, white);
+  --border-subtle: color-mix(in srgb, var(--text-primary) 7%, transparent);
+  --border-strong: color-mix(in srgb, var(--text-primary) 14%, transparent);
+  --overlay-accent-1: color-mix(in srgb, var(--accent) 22%, transparent);
+  --overlay-accent-2: color-mix(in srgb, var(--primary) 18%, transparent);
+  --dot-glow: color-mix(in srgb, var(--accent) 45%, transparent);
+  --accent-hover: color-mix(in srgb, var(--background) 84%, white);
+  --accent-hover-foreground: var(--text-primary);
+  --font-primary-family: var(--font-plus-jakarta-sans), system-ui, sans-serif;
+  --font-heading-family: var(--font-plus-jakarta-sans), system-ui, sans-serif;
+  --font-sans: var(--font-plus-jakarta-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-heading: var(--font-plus-jakarta-sans), system-ui, sans-serif;
+  --font-paragraph: var(--font-plus-jakarta-sans), system-ui, sans-serif;
+  --font-mono: "Consolas", "Courier New", monospace;
+  --font-size-h1: 60px;
+  --font-size-h2: 44px;
+  --font-size-body: 15.2px;
+  --radius-base: 4px;
+  --space-unit: 4px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-border: var(--border-subtle);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-link: var(--link);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-paragraph: var(--font-paragraph);
+  --font-mono: var(--font-mono);
+  --radius-base: var(--radius-base);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+}
+
+@layer utilities {
+  .hover\:bg-accent:hover {
+    background-color: var(--accent-hover);
+  }
+
+  .hover\:text-accent-foreground:hover {
+    color: var(--accent-hover-foreground);
+  }
+}
+
+h1,
+.text-h1 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h1);
+  font-weight: 800;
+}
+
+h2,
+.text-h2 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+}
+
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+p,
+li,
+.text-body {
+  font-family: var(--font-paragraph);
+  font-size: var(--font-size-body);
+}
+
+.layout-shell {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .layout-shell {
+    width: 85vw !important;
+    max-width: 85vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
