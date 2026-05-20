@@ -4,35 +4,40 @@ import { useState } from "react";
 import { Plus } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { ScrollAnimation } from "@/components/uilayouts/scroll-animation";
+import { oryntContent } from "@/data/orynt-content";
 
 const ITEMS = [
   {
     id: "item-01",
     label: "01 / ADAPTIVE LIQUIDITY",
-    statement: "Liquidity must evolve with distributed capital flow.",
-    description:
-      "Dynamic infrastructure layers designed to evolve alongside changing market conditions and distributed capital flow.",
+    statement: oryntContent.adaptiveLiquidity.intro,
+    description: oryntContent.coordinationLayers.cards[0].description,
+    coreCapabilities: oryntContent.adaptiveLiquidity.coreCapabilities,
+    secondaryTitle: oryntContent.adaptiveLiquidity.secondaryTitle,
+    secondaryItems: oryntContent.adaptiveLiquidity.secondaryItems,
+    tagline: oryntContent.adaptiveLiquidity.tagline,
   },
   {
     id: "item-02",
     label: "02 / MACHINE-NATIVE EXECUTION",
-    statement: "Autonomous systems need execution-native infrastructure.",
-    description:
-      "Infrastructure direction focused on scalable interaction between autonomous systems and decentralized financial environments.",
+    statement: oryntContent.machineNativeExecution.intro,
+    description: oryntContent.coordinationLayers.cards[1].description,
+    coreCapabilities: oryntContent.machineNativeExecution.coreCapabilities,
+    secondaryTitle: oryntContent.machineNativeExecution.secondaryTitle,
+    secondaryItems: oryntContent.machineNativeExecution.secondaryItems,
+    tagline: oryntContent.machineNativeExecution.tagline,
   },
   {
     id: "item-03",
     label: "03 / AUTONOMOUS COORDINATION",
-    statement: "The next layer is coordination, not isolated participation.",
-    description:
-      "Coordinated systems designed to support adaptive participation, intelligent execution, and evolving network behavior.",
-  },
-  {
-    id: "item-04",
-    label: "04 / INFRASTRUCTURE PHILOSOPHY",
-    statement: "Liquidity was never the core problem. Coordination was.",
-    description:
-      "ORYNT approaches infrastructure as an evolving coordination layer rather than a fixed financial system.",
+    statement: oryntContent.autonomousCoordination.intro,
+    description: oryntContent.autonomousCoordination.description,
+    coreCapabilities: oryntContent.autonomousCoordination.coreCapabilities,
+    secondaryTitle: oryntContent.autonomousCoordination.secondaryTitle,
+    secondaryItems: oryntContent.autonomousCoordination.secondaryItems,
+    tagline: oryntContent.autonomousCoordination.tagline,
+    coordinationNetwork: oryntContent.autonomousCoordination.coordinationNetwork,
+    coordinationCenter: oryntContent.autonomousCoordination.coordinationCenter,
   },
 ];
 
@@ -42,9 +47,9 @@ export function CoordinationSection() {
   return (
     <section
       id="coordination"
-      className="relative min-h-screen overflow-hidden bg-background py-20 md:py-24 lg:py-28"
+      className="relative min-h-screen overflow-hidden bg-transparent py-20 md:py-24 lg:py-28"
     >
-      <div className="layout-shell grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-12">
+      <div className="layout-shell grid gap-12 lg:grid-cols-[40%_60%] lg:gap-12">
         <div className="relative flex flex-col items-start">
           <ScrollAnimation
             as="div"
@@ -59,20 +64,12 @@ export function CoordinationSection() {
 
           <ScrollAnimation as="div">
             <SectionLabel className="uppercase tracking-[0.3em] text-muted-foreground">
-              Coordination Layers
+              {oryntContent.coordinationLayers.label}
             </SectionLabel>
           </ScrollAnimation>
 
           <h2 className="mt-8 text-4xl font-bold uppercase leading-[0.95] text-foreground md:text-5xl lg:text-6xl">
-            <ScrollAnimation as="span" className="block">
-              The next financial layer
-            </ScrollAnimation>
-            <ScrollAnimation as="span" className="block" delay={0.08}>
-              will coordinate
-            </ScrollAnimation>
-            <ScrollAnimation as="span" className="block" delay={0.16}>
-              autonomous capital.
-            </ScrollAnimation>
+            <ScrollAnimation as="span" className="block">{oryntContent.coordinationLayers.title}</ScrollAnimation>
           </h2>
 
           <ScrollAnimation
@@ -80,11 +77,11 @@ export function CoordinationSection() {
             delay={0.2}
             className="mt-7 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base"
           >
-            Static liquidity systems were built for reactive markets. ORYNT explores adaptive coordination layers for machine-native execution, distributed capital flow, and evolving decentralized financial systems.
+            {oryntContent.coordinationLayers.description}
           </ScrollAnimation>
         </div>
 
-        <div className="self-start lg:justify-self-end lg:w-[min(100%,640px)]">
+        <div className="self-start lg:justify-self-end lg:w-[60vw] lg:max-w-none">
           <div className="space-y-2 lg:flex lg:flex-col lg:items-end">
             {ITEMS.map((item, index) => {
               const isOpen = openId === item.id;
@@ -105,7 +102,7 @@ export function CoordinationSection() {
                   >
                     <div className="lg:order-2">
                       <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{item.label}</p>
-                      <h3 className="mt-3 text-lg font-semibold leading-snug text-foreground md:text-xl">
+                      <h3 className="mt-3 text-base font-semibold leading-relaxed text-foreground md:text-lg">
                         {item.statement}
                       </h3>
                     </div>
@@ -117,9 +114,68 @@ export function CoordinationSection() {
                     id={`${item.id}-content`}
                     className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                   >
-                    <p className="overflow-hidden pb-4 text-sm leading-relaxed text-muted-foreground">
-                      {item.description}
-                    </p>
+                    <div className="max-h-[60vh] overflow-y-auto overflow-x-hidden pb-4 pr-1">
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {item.description}
+                      </p>
+                      <div className="mt-4 grid gap-2 md:grid-cols-2">
+                        {item.coreCapabilities.map((capability, capabilityIndex) => (
+                          <ScrollAnimation
+                            as="article"
+                            key={capability.title}
+                            delay={0.03 + capabilityIndex * 0.03}
+                            className="rounded-md border border-border/60 bg-card/25 p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]"
+                          >
+                            <h4 className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/95">
+                              {capability.title}
+                            </h4>
+                            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{capability.body}</p>
+                          </ScrollAnimation>
+                        ))}
+                      </div>
+                      <ScrollAnimation as="div" delay={0.08} className="mt-4">
+                        <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{item.secondaryTitle}</p>
+                        <div className="mt-2 grid gap-2 md:grid-cols-2">
+                          {item.secondaryItems.map((benefit, benefitIndex) => (
+                            <ScrollAnimation
+                              as="article"
+                              key={benefit.title}
+                              delay={0.03 + benefitIndex * 0.03}
+                              className="rounded-md border border-border/60 bg-card/20 p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.015)]"
+                            >
+                              <h5 className="text-xs font-semibold uppercase tracking-[0.1em] text-foreground/90">{benefit.title}</h5>
+                              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{benefit.body}</p>
+                            </ScrollAnimation>
+                          ))}
+                        </div>
+                      </ScrollAnimation>
+                      {item.coordinationNetwork ? (
+                        <ScrollAnimation as="div" delay={0.12} className="mt-4 rounded-md border border-border/60 bg-card/20 p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.015)]">
+                          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Coordination Network</p>
+                          <div className="mt-2 flex flex-wrap gap-2">
+                            {item.coordinationNetwork.map((networkItem) => (
+                              <span
+                                key={networkItem}
+                                className="rounded border border-border/60 bg-card/25 px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-foreground/90"
+                              >
+                                {networkItem}
+                              </span>
+                            ))}
+                          </div>
+                          <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-foreground/95">
+                            At the center: {item.coordinationCenter}
+                          </p>
+                        </ScrollAnimation>
+                      ) : null}
+                      <ScrollAnimation
+                        as="div"
+                        delay={0.14}
+                        className="mt-4 border-t border-border/60 pt-3 text-sm font-semibold leading-relaxed text-foreground/95"
+                      >
+                        <p>{item.tagline[0]}</p>
+                        <p>{item.tagline[1]}</p>
+                      </ScrollAnimation>
+                    </div>
                   </div>
                 </ScrollAnimation>
               );

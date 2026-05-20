@@ -2,33 +2,17 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { Send, X } from "lucide-react";
-import Blocks from "@/components/uilayouts/blocks";
 
 import { MinimalButton } from "@/components/shared/MinimalButton";
+import Blocks from "@/components/uilayouts/blocks";
 import { oryntContent } from "@/data/orynt-content";
 import { FaTelegram, FaXTwitter } from "react-icons/fa6";
 
-const HERO_ACTIVE_DIVS = {
-  0: new Set([2, 4, 6]),
-  1: new Set([0, 8]),
-  2: new Set([1, 3, 5]),
-  4: new Set([0, 5, 8]),
-  5: new Set([2, 4]),
-  7: new Set([2, 6, 9]),
-  8: new Set([0, 4]),
-  9: new Set([5]),
-  10: new Set([3, 6]),
-  11: new Set([1, 5]),
-  12: new Set([7]),
-  13: new Set([2, 4]),
-  14: new Set([5]),
-  15: new Set([1, 6]),
-};
+const SHOW_SOCIAL_LINKS = false;
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const blocksRef = useRef<HTMLDivElement>(null);
+  const blocksContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -109,25 +93,16 @@ export function HeroSection() {
     <section
       id="top"
       ref={sectionRef}
-      className="relative h-[calc(100svh-5rem)] overflow-hidden bg-background md:h-[calc(100svh-6rem)]"
+      className="relative h-[calc(100svh-5rem)] overflow-hidden bg-transparent md:h-[calc(100svh-6rem)]"
     >
-      <div className="absolute inset-0 z-0 bg-background" />
-
-      <div
-        ref={blocksRef}
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[1] h-full opacity-100 [mask-image:linear-gradient(to_bottom,black_0%,black_80%,transparent_100%)]"
-      >
+      <div ref={blocksContainerRef} className="absolute inset-0 -z-0 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--surface-2)]/18 via-transparent to-[color:var(--surface-1)]/30" />
         <Blocks
-          activeDivsClass="bg-foreground/[0.035]"
-          divClass="border-border/30"
-          classname="w-full"
-          containerRef={blocksRef}
-          activeDivs={HERO_ACTIVE_DIVS}
+          containerRef={blocksContainerRef}
+          divClass="!border-[color:var(--border-subtle)]/35 bg-[color:var(--surface-2)]/8"
+          classname="opacity-70 [mask-image:radial-gradient(72%_58%_at_50%_46%,black_52%,transparent_100%)]"
         />
       </div>
-
-      <div className="pointer-events-none absolute inset-0 z-[2] bg-[linear-gradient(to_bottom,hsl(var(--background)/0.08)_0%,hsl(var(--background)/0.2)_70%,hsl(var(--background)/0.42)_100%)]" />
 
       {/* Main layout */}
       <div className="relative z-10 mx-auto flex h-full w-full max-w-[92%] flex-col md:max-w-[85%]">
@@ -149,11 +124,11 @@ export function HeroSection() {
               </span>
               <br />
               <span className="text-[clamp(1.9rem,4.6vw,3.35rem)] font-bold leading-[1] text-foreground/85">
-                {oryntContent.hero.tagline[0]}
+                {oryntContent.hero.opening[0]}
               </span>
               <br />
               <span className="text-[clamp(1.9rem,4.6vw,3.35rem)] font-bold leading-[1] text-foreground/85">
-                {oryntContent.hero.tagline[1]}
+                {oryntContent.hero.opening[1]}
               </span>
             </p>
           </div>
@@ -162,11 +137,11 @@ export function HeroSection() {
           <div className="absolute right-0 top-10 hidden max-w-sm lg:block">
             <p
               data-hero-subtext
-              className="text-base font-medium leading-relaxed text-foreground/85"
-            >
-              {oryntContent.hero.subtext}
-            </p>
-          </div>
+            className="text-base font-medium leading-relaxed text-foreground/85"
+          >
+            {oryntContent.hero.subtext}
+          </p>
+        </div>
         </div>
 
         {/* Giant background brand */}
@@ -186,15 +161,19 @@ export function HeroSection() {
                 variant="default"
               />
 
-              <MinimalButton
-                label={oryntContent.hero.buttons.x}
-                icon={<FaXTwitter className="h-4 w-4" />}
-              />
+              {SHOW_SOCIAL_LINKS ? (
+                <>
+                  <MinimalButton
+                    label={oryntContent.hero.buttons.x}
+                    icon={<FaXTwitter className="h-4 w-4" />}
+                  />
 
-              <MinimalButton
-                label={oryntContent.hero.buttons.telegram}
-                icon={<FaTelegram className="h-4 w-4" />}
-              />
+                  <MinimalButton
+                    label={oryntContent.hero.buttons.telegram}
+                    icon={<FaTelegram className="h-4 w-4" />}
+                  />
+                </>
+              ) : null}
             </div>
 
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
@@ -209,7 +188,7 @@ export function HeroSection() {
             className="hidden items-center gap-4 text-xs text-muted-foreground md:flex"
           >
             <span className="h-px w-28 bg-border" />
-            <span className="whitespace-nowrap">ADAPTIVE LIQUIDITY INFRASTRUCTURE</span>
+            <span className="whitespace-nowrap">{oryntContent.hero.tagline[0]}</span>
           </div>
         </div>
       </div>

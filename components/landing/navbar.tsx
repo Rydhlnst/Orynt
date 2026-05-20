@@ -10,7 +10,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full  bg-background/60 backdrop-blur-2xl">
+    <header className="sticky top-0 z-50 w-full bg-transparent">
       <nav className="mx-auto flex h-20 w-full max-w-[92%] items-center justify-between md:h-24 md:max-w-[85%]">
         {/* Logo */}
         <Link
@@ -18,7 +18,7 @@ export function Navbar() {
           aria-label="Go to top"
           className="group inline-flex items-center gap-3"
         >
-          <span className="relative flex h-12 w-12 items-center justify-center  bg-card/40 p-1 transition-colors group-hover:border-foreground/40">
+          <span className="relative flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[rgba(255,255,255,0.08)] p-1 shadow-[0_8px_24px_rgba(0,0,0,0.3)] backdrop-blur-md transition-colors group-hover:border-white/35">
             <Image
               src="/orynt-mark.png"
               alt="Orynt mark"
@@ -29,7 +29,7 @@ export function Navbar() {
             />
           </span>
 
-          <span className="hidden text-sm font-medium tracking-[0.32em] text-foreground/80 md:inline">
+          <span className="hidden text-sm font-medium tracking-[0.32em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] md:inline">
             ORYNT
           </span>
         </Link>
@@ -41,7 +41,7 @@ export function Navbar() {
               variant="outline"
               // size="sm"
               onClick={() => jumpTo("documentation")}
-              className="h-10 rounded-full border-border bg-card/30 px-5 text-xs font-medium text-foreground/80 shadow-none backdrop-blur-xl transition-colors hover:bg-accent hover:text-accent-foreground md:text-sm"
+              className="h-10 rounded-full border border-white/20 bg-[rgba(255,255,255,0.08)] px-5 text-xs font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_10px_28px_rgba(0,0,0,0.32)] backdrop-blur-md transition-colors hover:bg-[rgba(255,255,255,0.14)] hover:text-white md:text-sm"
             >
               Documentation
             </Button>
@@ -51,7 +51,7 @@ export function Navbar() {
             variant="default"
             // size="sm"
             onClick={() => jumpTo("open-app")}
-            className="h-10 rounded-full px-5 text-xs font-medium shadow-none md:text-sm"
+            className="h-10 rounded-full border border-white/25 bg-[rgba(255,255,255,0.16)] px-5 text-xs font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_12px_30px_rgba(0,0,0,0.34)] backdrop-blur-md transition-colors hover:bg-[rgba(255,255,255,0.22)] md:text-sm"
           >
             Open OS
           </Button>

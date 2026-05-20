@@ -20,18 +20,24 @@ export function ShiftSection() {
     <section className="relative left-1/2 w-screen -translate-x-1/2 py-24 md:py-32">
       <div className="mx-auto w-full max-w-[92%] md:max-w-[85%]">
         <SectionLabel className="mb-10 text-sm font-semibold uppercase tracking-[0.3em]">
-          {oryntContent.shift.label}
+          {oryntContent.theShift.label}
         </SectionLabel>
         <ScrollAnimation as="h2" className="max-w-5xl text-4xl font-extrabold leading-[0.95] text-[color:var(--text-primary)] md:text-6xl">
-          {oryntContent.shift.statement}
+          {oryntContent.theShift.title[0]}
+          <br />
+          {oryntContent.theShift.title[1]}
         </ScrollAnimation>
         <div className="mt-10 grid max-w-4xl gap-6 text-base font-medium leading-relaxed text-[color:var(--text-secondary)] md:text-lg">
-          {oryntContent.shift.paragraphs.map((paragraph, index) => (
+          {oryntContent.theShift.paragraphs.map((paragraph, index) => (
             <ScrollAnimation as="p" delay={index * 0.08} key={paragraph}>
               {paragraph}
             </ScrollAnimation>
           ))}
         </div>
+        <ScrollAnimation as="div" delay={0.3} className="mt-10 text-lg font-semibold leading-relaxed text-[color:var(--text-primary)] md:text-2xl">
+          <p>{oryntContent.theShift.tagline[0]}</p>
+          <p>{oryntContent.theShift.tagline[1]}</p>
+        </ScrollAnimation>
       </div>
 
       <ScrollAnimation as="div" className="mt-14 space-y-3 md:mt-16" direction="up">

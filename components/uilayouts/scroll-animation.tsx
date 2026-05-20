@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { HTMLMotionProps, motion } from 'motion/react';
+import { motion, type Variants } from 'motion/react';
 import type React from 'react';
 
 type Direction = 'up' | 'down' | 'left' | 'right';
@@ -18,20 +18,32 @@ type AsTag =
   | 'button'
   | 'article';
 
-const generateVariants = (direction: Direction) => {
-  const axis = direction === 'left' || direction === 'right' ? 'x' : 'y';
+const generateVariants = (direction: Direction): Variants => {
   const value = direction === 'right' || direction === 'down' ? 20 : -20;
+  const transition = {
+    duration: 0.7,
+    ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+  };
+
+  if (direction === 'left' || direction === 'right') {
+    return {
+      hidden: { filter: 'blur(10px)', opacity: 0, x: value },
+      visible: {
+        filter: 'blur(0px)',
+        opacity: 1,
+        x: 0,
+        transition,
+      },
+    };
+  }
 
   return {
-    hidden: { filter: 'blur(10px)', opacity: 0, [axis]: value },
+    hidden: { filter: 'blur(10px)', opacity: 0, y: value },
     visible: {
       filter: 'blur(0px)',
       opacity: 1,
-      [axis]: 0,
-      transition: {
-        duration: 0.7,
-        ease: 'easeOut',
-      },
+      y: 0,
+      transition,
     },
   };
 };
@@ -42,13 +54,12 @@ const defaultViewport = {
   margin: '0px 0px -200px 0px',
 };
 
+type ScrollVariants = Variants;
+
 interface ScrollElementProps {
   children: React.ReactNode;
   className?: string;
-  variants?: {
-    hidden?: any;
-    visible?: any;
-  };
+  variants?: ScrollVariants;
   viewport?: {
     amount?: number;
     margin?: string;
@@ -57,7 +68,7 @@ interface ScrollElementProps {
   delay?: number;
   direction?: Direction;
   as?: AsTag;
-  [key: string]: any; // Allow any additional props
+  [key: string]: unknown;
 }
 
 export function ScrollAnimation({
@@ -71,12 +82,14 @@ export function ScrollAnimation({
   ...props
 }: ScrollElementProps) {
   const baseVariants = variants || generateVariants(direction);
+  const baseVisible = baseVariants.visible as Record<string, unknown>;
   const modifiedVariants = {
     hidden: baseVariants.hidden,
     visible: {
-      ...baseVariants.visible,
+      ...baseVisible,
       transition: {
-        ...baseVariants.visible.transition,
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
         delay,
       },
     },
@@ -89,7 +102,7 @@ export function ScrollAnimation({
       whileInView='visible'
       initial='hidden'
       variants={modifiedVariants}
-      viewport={viewport as any}
+      viewport={viewport}
       className={cn(className)}
       {...props}
     >

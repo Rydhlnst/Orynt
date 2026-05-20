@@ -5,9 +5,12 @@ import { ScrollAnimation } from "@/components/uilayouts/scroll-animation";
 import { AbstractOrbit } from "@/components/shared/AbstractOrbit";
 import { oryntContent } from "@/data/orynt-content";
 
+const SHOW_SOCIAL_LINKS = false;
+const SHOW_CA = false;
+
 export function FooterSection() {
   return (
-    <footer id="footer" className="relative scroll-mt-20 overflow-hidden bg-background text-foreground md:scroll-mt-24">
+    <footer id="footer" className="relative scroll-mt-20 overflow-hidden bg-transparent text-foreground md:scroll-mt-24">
       <div className="layout-shell relative z-10 flex min-h-[calc(100svh-5rem)] flex-col pb-10 pt-24 md:min-h-[calc(100svh-6rem)] md:pb-12 md:pt-28">
         <div className="grid flex-1 gap-12 lg:grid-cols-[1fr_300px]">
           <div className="relative">
@@ -33,19 +36,21 @@ export function FooterSection() {
                 {"/"}
                 {"//"} Community
               </p>
-              <div className="space-y-3 text-lg font-bold uppercase tracking-[0.1em] text-foreground/95 md:text-xl">
-                <Link
-                  href="https://x.com/Oryntcore"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block transition-colors hover:text-foreground"
-                >
-                  X / Official
-                </Link>
-                <Link href="#" className="block transition-colors hover:text-foreground">
-                  Telegram
-                </Link>
-              </div>
+              {SHOW_SOCIAL_LINKS ? (
+                <div className="space-y-3 text-lg font-bold uppercase tracking-[0.1em] text-foreground/95 md:text-xl">
+                  <Link
+                    href="https://x.com/Oryntcore"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block transition-colors hover:text-foreground"
+                  >
+                    X / Official
+                  </Link>
+                  <Link href="#" className="block transition-colors hover:text-foreground">
+                    Telegram
+                  </Link>
+                </div>
+              ) : null}
             </ScrollAnimation>
 
             <ScrollAnimation as="div" className="space-y-4" delay={0.08}>
@@ -64,9 +69,11 @@ export function FooterSection() {
         </div>
 
         <div className="relative z-10 mt-8 flex flex-col items-center gap-3 pb-10 text-center">
-          <div className="rounded-full border border-border/60 bg-card/40 px-6 py-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            CA: GYSHDDoVtFNdZR72SSkmJcKWFVh9ndhMdYoDKdg8pump
-          </div>
+          {SHOW_CA ? (
+            <div className="rounded-full border border-border/60 bg-card/40 px-6 py-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              CA: GYSHDDoVtFNdZR72SSkmJcKWFVh9ndhMdYoDKdg8pump
+            </div>
+          ) : null}
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
             (C) ORYNT 2026 * ADAPTIVE INFRASTRUCTURE FOR AUTONOMOUS FINANCE
           </p>
