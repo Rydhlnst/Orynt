@@ -14,10 +14,11 @@ export function StackedSections({ children }: PropsWithChildren) {
     if (!root) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reducedMotion) return;
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    if (reducedMotion || !isDesktop) return;
 
     const ctx = gsap.context(() => {
-      const panels = gsap.utils.toArray<HTMLElement>("[data-stack-panel]");
+      const panels = gsap.utils.toArray<HTMLElement>(root.querySelectorAll("[data-stack-panel]"));
       if (panels.length < 2) return;
 
       panels.forEach((panel, index) => {

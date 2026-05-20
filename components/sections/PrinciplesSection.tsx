@@ -4,7 +4,7 @@ import { oryntContent } from "@/data/orynt-content";
 
 export function PrinciplesSection() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-28">
+    <section className="relative overflow-visible py-24 md:overflow-hidden md:py-28">
       <div className="layout-shell relative z-10 grid gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] lg:items-start">
         <div>
           <ScrollAnimation as="div">

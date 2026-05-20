@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { motion, type Variants } from 'motion/react';
 import type React from 'react';
@@ -81,6 +82,18 @@ export function ScrollAnimation({
   as: Component = 'div',
   ...props
 }: ScrollElementProps) {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    const syncDesktopState = () => setIsDesktop(mediaQuery.matches);
+
+    syncDesktopState();
+    mediaQuery.addEventListener('change', syncDesktopState);
+
+    return () => mediaQuery.removeEventListener('change', syncDesktopState);
+  }, []);
+
   const baseVariants = variants || generateVariants(direction);
   const baseVisible = baseVariants.visible as Record<string, unknown>;
   const modifiedVariants = {
@@ -99,10 +112,11 @@ export function ScrollAnimation({
 
   return (
     <MotionComponent
-      whileInView='visible'
+      animate={isDesktop ? undefined : 'visible'}
+      whileInView={isDesktop ? 'visible' : undefined}
       initial='hidden'
       variants={modifiedVariants}
-      viewport={viewport}
+      viewport={isDesktop ? viewport : undefined}
       className={cn(className)}
       {...props}
     >

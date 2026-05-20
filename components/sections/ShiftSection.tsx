@@ -17,7 +17,7 @@ const SHIFT_MARQUEE_ITEMS = [
 
 export function ShiftSection() {
   return (
-    <section className="relative left-1/2 w-screen -translate-x-1/2 py-24 md:py-32">
+    <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-visible py-24 md:py-32">
       <div className="mx-auto w-full max-w-[92%] md:max-w-[85%]">
         <SectionLabel className="mb-10 text-sm font-semibold uppercase tracking-[0.3em]">
           {oryntContent.theShift.label}

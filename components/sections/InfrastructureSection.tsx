@@ -7,7 +7,7 @@ import { oryntContent } from "@/data/orynt-content";
 
 export function InfrastructureSection() {
   return (
-    <section className="relative py-20 md:py-28">
+    <section className="relative overflow-visible py-20 md:py-28">
       <div className="absolute inset-0 opacity-30">
         <AbstractOrbit />
       </div>

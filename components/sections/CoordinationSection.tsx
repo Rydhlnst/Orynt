@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Plus } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { ScrollAnimation } from "@/components/uilayouts/scroll-animation";
@@ -42,12 +42,22 @@ const ITEMS = [
 ];
 
 export function CoordinationSection() {
-  const [openId, setOpenId] = useState(ITEMS[0].id);
+  const [openId, setOpenId] = useState("");
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const syncDefaultOpen = () => setOpenId(mediaQuery.matches ? ITEMS[0].id : "");
+
+    syncDefaultOpen();
+    mediaQuery.addEventListener("change", syncDefaultOpen);
+
+    return () => mediaQuery.removeEventListener("change", syncDefaultOpen);
+  }, []);
 
   return (
     <section
       id="coordination"
-      className="relative min-h-screen overflow-hidden bg-transparent py-20 md:py-24 lg:py-28"
+      className="relative min-h-fit overflow-visible bg-transparent py-20 md:min-h-screen md:overflow-hidden md:py-24 lg:py-28"
     >
       <div className="layout-shell grid gap-12 lg:grid-cols-[40%_60%] lg:gap-12">
         <div className="relative flex flex-col items-start">
@@ -112,9 +122,9 @@ export function CoordinationSection() {
                   </button>
                   <div
                     id={`${item.id}-content`}
-                    className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                    className={`grid overflow-hidden transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                   >
-                    <div className="max-h-[60vh] overflow-y-auto overflow-x-hidden pb-4 pr-1">
+                    <div className="min-h-0 max-h-none overflow-visible pb-4 pr-1 md:max-h-[60vh] md:overflow-y-auto md:overflow-x-hidden">
                       <p className="text-sm leading-relaxed text-muted-foreground">
                         {item.description}
                       </p>
