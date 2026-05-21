@@ -47,14 +47,6 @@ export function Navbar() {
             </Button>
           </Link>
 
-          <Button
-            variant="default"
-            // size="sm"
-            onClick={() => jumpTo("open-app")}
-            className="h-10 rounded-full border border-white/25 bg-[rgba(255,255,255,0.16)] px-5 text-xs font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_12px_30px_rgba(0,0,0,0.34)] backdrop-blur-md transition-colors hover:bg-[rgba(255,255,255,0.22)] md:text-sm"
-          >
-            Open OS
-          </Button>
         </div>
       </nav>
     </header>

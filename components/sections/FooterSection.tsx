@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { FaXTwitter } from "react-icons/fa6";
 import { ScrollAnimation } from "@/components/uilayouts/scroll-animation";
 import { AbstractOrbit } from "@/components/shared/AbstractOrbit";
 import { oryntContent } from "@/data/orynt-content";
 
-const SHOW_SOCIAL_LINKS = false;
+const SHOW_SOCIAL_LINKS = true;
 const SHOW_CA = false;
 
 export function FooterSection() {
@@ -42,37 +43,20 @@ export function FooterSection() {
                     href="https://x.com/Oryntcore"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block transition-colors hover:text-foreground"
+                    className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
                   >
+                    <FaXTwitter className="h-5 w-5" aria-hidden="true" />
                     X / Official
-                  </Link>
-                  <Link href="#" className="block transition-colors hover:text-foreground">
-                    Telegram
                   </Link>
                 </div>
               ) : null}
-            </ScrollAnimation>
-
-            <ScrollAnimation as="div" className="space-y-4" delay={0.08}>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                {"/"}
-                {"//"} Question
-              </p>
-              <a
-                href="mailto:support@orynt.ai"
-                className="text-lg font-bold uppercase tracking-[0.1em] text-foreground/95 transition-colors hover:text-foreground md:text-xl"
-              >
-                support@orynt.ai
-              </a>
             </ScrollAnimation>
           </aside>
         </div>
 
         <div className="relative z-10 mt-8 flex flex-col items-center gap-3 pb-10 text-center">
           {SHOW_CA ? (
-            <div className="rounded-full border border-border/60 bg-card/40 px-6 py-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              CA: GYSHDDoVtFNdZR72SSkmJcKWFVh9ndhMdYoDKdg8pump
-            </div>
+            <div></div>
           ) : null}
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
             (C) ORYNT 2026 * ADAPTIVE INFRASTRUCTURE FOR AUTONOMOUS FINANCE
