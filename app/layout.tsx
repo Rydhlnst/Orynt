@@ -3,8 +3,8 @@ import type { CSSProperties } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Crypto Landing Page",
-  description: "Web3 native AI operating system landing page",
+  title: "Orynt - Autonomous Capital",
+  description: "Orynt - Autonomous Capital",
 };
 
 export default function RootLayout({
