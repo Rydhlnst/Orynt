@@ -32,7 +32,7 @@ export function StackedSectionCards({ sections, className }: StackedSectionCards
   });
 
   return (
-    <div ref={containerRef} className={`relative ${className ?? ""}`}>
+    <div ref={containerRef} className={`relative z-0 ${className ?? ""}`}>
       {sections.map((section, index) => {
         return (
           <StackedPanel

@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 import { MinimalButton } from "@/components/shared/MinimalButton";
-import Blocks from "@/components/uilayouts/blocks";
 import { oryntContent } from "@/data/orynt-content";
 import { FaTelegram, FaXTwitter } from "react-icons/fa6";
 
@@ -12,7 +11,6 @@ const SHOW_SOCIAL_LINKS = false;
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const blocksContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -93,24 +91,13 @@ export function HeroSection() {
     <section
       id="top"
       ref={sectionRef}
-      className="relative h-[calc(100svh-5rem)] overflow-hidden bg-transparent md:h-[calc(100svh-6rem)]"
+      className="relative h-screen overflow-hidden bg-transparent"
     >
-      <div ref={blocksContainerRef} className="absolute inset-0 -z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--surface-2)]/18 via-transparent to-[color:var(--surface-1)]/30" />
-        <Blocks
-          containerRef={blocksContainerRef}
-          divClass="!border-[color:var(--border-subtle)]/35 bg-[color:var(--surface-2)]/8"
-          classname="opacity-70 [mask-image:radial-gradient(72%_58%_at_50%_46%,black_52%,transparent_100%)]"
-        />
-      </div>
-
       {/* Main layout */}
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-[92%] flex-col md:max-w-[85%]">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-[92%] flex-col pb-8 pt-20 md:max-w-[85%] md:pt-24">
 
         {/* Upper content */}
-        <div className="relative flex flex-1">
-          {/* Left vertical line */}
-          
+        <div className="relative flex flex-1 items-center">
 
           {/* Left headline */}
           <div className="pt-8">
@@ -118,7 +105,6 @@ export function HeroSection() {
               data-hero-title
               className="max-w-3xl text-foreground/95"
             >
-              {/* <span className="block text-[clamp(12rem,24vw,22.5rem)] font-extrabold leading-[0.88]"> */}
               <span className="block text-[clamp(3.8rem,8.6vw,7.4rem)] font-extrabold leading-[0.92]">
                 {oryntContent.hero.title}
               </span>
@@ -134,20 +120,31 @@ export function HeroSection() {
           </div>
 
           {/* Right description */}
-          <div className="absolute right-0 top-10 hidden max-w-sm lg:block">
+          <div className="absolute right-0 top-0 hidden max-w-sm lg:block">
             <p
               data-hero-subtext
-            className="text-base font-medium leading-relaxed text-foreground/85"
-          >
-            {oryntContent.hero.subtext}
-          </p>
-        </div>
+              className="text-base font-medium leading-relaxed text-foreground/85"
+            >
+              {oryntContent.hero.subtext}
+            </p>
+          </div>
         </div>
 
-        {/* Giant background brand */}
+        {/* Vertical brand text — right side, ~2/3 visible */}
         <div
           data-hero-brand-bg
-          className="pointer-events-none absolute bottom-[-7vw] left-1/2 -z-0 hidden -translate-x-1/2 select-none text-[24vw] font-semibold leading-none tracking-[-0.07em] text-foreground/[0.08] md:block"
+          className="pointer-events-none absolute top-0 -z-0 hidden select-none md:block"
+          style={{
+            right: "-8vw",
+            writingMode: "vertical-rl",
+            textOrientation: "mixed",
+            fontSize: "clamp(8rem, 18vw, 18rem)",
+            fontWeight: 600,
+            lineHeight: 1,
+            letterSpacing: "-0.07em",
+            color: "color-mix(in srgb, currentColor 8%, transparent)",
+            height: "100%",
+          }}
         >
           {oryntContent.hero.title}
         </div>

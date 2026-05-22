@@ -1,5 +1,4 @@
 import { StackedSectionCards } from "@/components/landing/StackedSectionCards";
-import { GlobalShaderBackground } from "@/components/shared/GlobalShaderBackground";
 import { CoordinationSection } from "@/components/sections/CoordinationSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -10,7 +9,6 @@ import { ShiftSection } from "@/components/sections/ShiftSection";
 export default function Home() {
   return (
     <main className="relative z-10 isolate overflow-x-clip bg-transparent text-[color:var(--text-primary)]">
-      <GlobalShaderBackground />
       <div className="bg-[#0A0A0A]">
         <HeroSection />
       </div>
@@ -23,7 +21,7 @@ export default function Home() {
           { content: <InfrastructureSection key="infrastructure" />, backgroundClassName: "bg-[#121212]" },
         ]}
       />
-      <div className="bg-[#080808]">
+      <div className="relative z-20 bg-[#080808]">
         <FooterSection />
       </div>
     </main>

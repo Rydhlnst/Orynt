@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 import { Plus } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
+import { NoiseTexture } from "@/components/ui/noise-texture";
 import { ScrollAnimation } from "@/components/uilayouts/scroll-animation";
 import { oryntContent } from "@/data/orynt-content";
 
 const ITEMS = [
   {
     id: "item-01",
-    label: "01 / ADAPTIVE LIQUIDITY",
+    label: "01 <::> ADAPTIVE LIQUIDITY",
     statement: oryntContent.adaptiveLiquidity.intro,
     description: oryntContent.coordinationLayers.cards[0].description,
     coreCapabilities: oryntContent.adaptiveLiquidity.coreCapabilities,
@@ -19,7 +20,7 @@ const ITEMS = [
   },
   {
     id: "item-02",
-    label: "02 / MACHINE-NATIVE EXECUTION",
+    label: "02 <::> MACHINE-NATIVE EXECUTION",
     statement: oryntContent.machineNativeExecution.intro,
     description: oryntContent.coordinationLayers.cards[1].description,
     coreCapabilities: oryntContent.machineNativeExecution.coreCapabilities,
@@ -29,7 +30,7 @@ const ITEMS = [
   },
   {
     id: "item-03",
-    label: "03 / AUTONOMOUS COORDINATION",
+    label: "03 <::> AUTONOMOUS COORDINATION",
     statement: oryntContent.autonomousCoordination.intro,
     description: oryntContent.autonomousCoordination.description,
     coreCapabilities: oryntContent.autonomousCoordination.coreCapabilities,
@@ -59,7 +60,14 @@ export function CoordinationSection() {
       id="coordination"
       className="relative min-h-fit overflow-visible bg-transparent py-20 md:min-h-screen md:overflow-hidden md:py-24 lg:py-28"
     >
-      <div className="layout-shell grid gap-12 lg:grid-cols-[40%_60%] lg:gap-12">
+      <NoiseTexture
+        className="opacity-[0.07] dark:opacity-[0.11] [mask-image:radial-gradient(85%_70%_at_52%_50%,black_40%,transparent_100%)]"
+        frequency={0.3}
+        octaves={5}
+        slope={0.12}
+        noiseOpacity={0.34}
+      />
+      <div className="layout-shell relative z-10 grid gap-12 lg:grid-cols-[40%_60%] lg:gap-12">
         <div className="relative flex flex-col items-start">
           <ScrollAnimation
             as="div"

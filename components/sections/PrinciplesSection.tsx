@@ -1,10 +1,18 @@
 import { SectionLabel } from "@/components/shared/SectionLabel";
+import { NoiseTexture } from "@/components/ui/noise-texture";
 import { ScrollAnimation } from "@/components/uilayouts/scroll-animation";
 import { oryntContent } from "@/data/orynt-content";
 
 export function PrinciplesSection() {
   return (
     <section className="relative overflow-visible py-24 md:overflow-hidden md:py-28">
+      <NoiseTexture
+        className="opacity-[0.08] dark:opacity-[0.12] [mask-image:radial-gradient(90%_75%_at_50%_44%,black_42%,transparent_100%)]"
+        frequency={0.32}
+        octaves={5}
+        slope={0.13}
+        noiseOpacity={0.36}
+      />
       <div className="layout-shell relative z-10 grid gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] lg:items-start">
         <div>
           <ScrollAnimation as="div">

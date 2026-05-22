@@ -30,10 +30,6 @@ export function GlobalScrollTracker() {
     >
       <div className="absolute inset-0 bg-[color:var(--text-faint)]" />
       <div className="absolute left-0 right-0 top-0 bg-[color:var(--text-primary)]" style={{ height: `${progress * 100}%` }} />
-      <div
-        className="absolute left-1.5 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-[color:var(--border-strong)] bg-[color:var(--background)]"
-        style={{ top: `${progress * 100}%`, transform: "translate(-50%, -50%)" }}
-      />
     </div>
   );
 }

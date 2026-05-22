@@ -2,6 +2,7 @@
 
 import { AbstractOrbit } from "@/components/shared/AbstractOrbit";
 import { SectionLabel } from "@/components/shared/SectionLabel";
+import { NoiseTexture } from "@/components/ui/noise-texture";
 import { ScrollAnimation } from "@/components/uilayouts/scroll-animation";
 import { oryntContent } from "@/data/orynt-content";
 
@@ -11,6 +12,13 @@ export function InfrastructureSection() {
       <div className="absolute inset-0 opacity-30">
         <AbstractOrbit />
       </div>
+      <NoiseTexture
+        className="z-[1] opacity-[0.07] dark:opacity-[0.11] [mask-image:radial-gradient(92%_76%_at_48%_50%,black_40%,transparent_100%)]"
+        frequency={0.28}
+        octaves={5}
+        slope={0.12}
+        noiseOpacity={0.34}
+      />
       <div className="layout-shell relative z-10">
         <SectionLabel className="mb-8">
           {oryntContent.infrastructurePhilosophy.label}

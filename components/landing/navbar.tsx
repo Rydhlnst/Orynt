@@ -10,7 +10,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-transparent">
+    <header className="fixed inset-x-0 top-0 z-50 w-full bg-transparent">
       <nav className="mx-auto flex h-20 w-full max-w-[92%] items-center justify-between md:h-24 md:max-w-[85%]">
         {/* Logo */}
         <Link
@@ -18,13 +18,13 @@ export function Navbar() {
           aria-label="Go to top"
           className="group inline-flex items-center gap-3"
         >
-          <span className="relative flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[rgba(255,255,255,0.08)] p-1 shadow-[0_8px_24px_rgba(0,0,0,0.3)] backdrop-blur-md transition-colors group-hover:border-white/35">
+          <span className="relative flex h-16 w-16 items-center justify-center">
             <Image
               src="/orynt-mark.png"
               alt="Orynt mark"
               width={48}
               height={48}
-              className="w-12 h-12 object-contain"
+              className="w-16 h-16 object-contain"
               priority
             />
           </span>
