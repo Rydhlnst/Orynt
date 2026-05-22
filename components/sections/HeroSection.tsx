@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 import { MinimalButton } from "@/components/shared/MinimalButton";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import { oryntContent } from "@/data/orynt-content";
 import { FaTelegram, FaXTwitter } from "react-icons/fa6";
 
@@ -91,8 +92,10 @@ export function HeroSection() {
     <section
       id="top"
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-transparent"
+      className="relative min-h-[100svh] w-screen overflow-hidden bg-transparent md:min-h-screen"
     >
+      <BackgroundBeams className="pointer-events-none inset-0 z-0 h-full w-full text-black/80 dark:text-white/80" />
+
       {/* Main layout */}
       <div className="relative z-10 mx-auto flex h-full w-full max-w-[92%] flex-col pb-8 pt-20 md:max-w-[85%] md:pt-24">
 
