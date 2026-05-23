@@ -142,7 +142,7 @@ export function CoordinationSection() {
                             as="article"
                             key={capability.title}
                             delay={0.03 + capabilityIndex * 0.03}
-                            className="rounded-md border border-border/60 bg-card/25 p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]"
+                            className="rounded-md border border-border/60 bg-card/25 p-3 shadow-[0_0_0_1px_var(--elevated-ring)]"
                           >
                             <h4 className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/95">
                               {capability.title}
@@ -159,7 +159,7 @@ export function CoordinationSection() {
                               as="article"
                               key={benefit.title}
                               delay={0.03 + benefitIndex * 0.03}
-                              className="rounded-md border border-border/60 bg-card/20 p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.015)]"
+                              className="rounded-md border border-border/60 bg-card/20 p-3 shadow-[0_0_0_1px_var(--elevated-ring)]"
                             >
                               <h5 className="text-xs font-semibold uppercase tracking-[0.1em] text-foreground/90">{benefit.title}</h5>
                               <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{benefit.body}</p>
@@ -168,7 +168,7 @@ export function CoordinationSection() {
                         </div>
                       </ScrollAnimation>
                       {item.coordinationNetwork ? (
-                        <ScrollAnimation as="div" delay={0.12} className="mt-4 rounded-md border border-border/60 bg-card/20 p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.015)]">
+                        <ScrollAnimation as="div" delay={0.12} className="mt-4 rounded-md border border-border/60 bg-card/20 p-3 shadow-[0_0_0_1px_var(--elevated-ring)]">
                           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Coordination Network</p>
                           <div className="mt-2 flex flex-wrap gap-2">
                             {item.coordinationNetwork.map((networkItem) => (

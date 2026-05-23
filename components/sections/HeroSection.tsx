@@ -94,7 +94,7 @@ export function HeroSection() {
       ref={sectionRef}
       className="relative min-h-[100svh] w-screen overflow-hidden bg-transparent md:min-h-screen"
     >
-      <BackgroundBeams className="pointer-events-none inset-0 z-0 h-full w-full text-black/80 dark:text-white/80" />
+      <BackgroundBeams className="pointer-events-none inset-0 z-0 h-full w-full opacity-80" />
 
       {/* Main layout */}
       <div className="relative z-10 mx-auto flex h-full w-full max-w-[92%] flex-col pb-8 pt-20 md:max-w-[85%] md:pt-24">
@@ -112,11 +112,11 @@ export function HeroSection() {
                 {oryntContent.hero.title}
               </span>
               <br />
-              <span className="text-[clamp(1.9rem,4.6vw,3.35rem)] font-bold leading-[1] text-foreground/85">
+              <span className="text-[clamp(1.35rem,3.2vw,2.45rem)] font-bold leading-[1.08] text-foreground/85">
                 {oryntContent.hero.opening[0]}
               </span>
               <br />
-              <span className="text-[clamp(1.9rem,4.6vw,3.35rem)] font-bold leading-[1] text-foreground/85">
+              <span className="text-[clamp(1.35rem,3.2vw,2.45rem)] font-bold leading-[1.08] text-foreground/85">
                 {oryntContent.hero.opening[1]}
               </span>
             </p>
@@ -154,7 +154,7 @@ export function HeroSection() {
 
         {/* Bottom content */}
         <div className="relative z-10 grid gap-6 pb-8 md:grid-cols-[1fr_auto] md:items-end">
-          <div data-hero-bottom className="space-y-5">
+          <div data-hero-bottom className="mt-4 space-y-5 md:mt-6">
             <div className="flex flex-wrap items-center gap-3">
               <MinimalButton
                 label={oryntContent.hero.buttons.primary}

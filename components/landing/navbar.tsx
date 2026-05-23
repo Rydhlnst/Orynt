@@ -29,7 +29,7 @@ export function Navbar() {
             />
           </span>
 
-          <span className="hidden text-sm font-medium tracking-[0.32em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] md:inline">
+          <span className="hidden text-sm font-medium tracking-[0.32em] text-[color:var(--text-primary)] md:inline">
             ORYNT
           </span>
         </Link>
@@ -41,7 +41,7 @@ export function Navbar() {
               variant="outline"
               // size="sm"
               onClick={() => jumpTo("documentation")}
-              className="h-10 rounded-full border border-white/20 bg-[rgba(255,255,255,0.08)] px-5 text-xs font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_10px_28px_rgba(0,0,0,0.32)] backdrop-blur-md transition-colors hover:bg-[rgba(255,255,255,0.14)] hover:text-white md:text-sm"
+              className="h-10 rounded-full border border-[color:var(--glass-button-border)] bg-[color:var(--glass-button-bg)] px-5 text-xs font-medium text-[color:var(--text-primary)] shadow-[var(--glass-button-shadow)] backdrop-blur-md transition-colors hover:bg-[color:var(--surface-2)] hover:text-[color:var(--text-primary)] md:text-sm"
             >
               Documentation
             </Button>

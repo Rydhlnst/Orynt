@@ -35,7 +35,7 @@ function Blocks({
               <div
                 key={rowIndex}
                 className={cn(
-                  `w-full border border-[#5dcece09] ${
+                  `w-full border border-[color:var(--grid-stroke)] ${
                     activeDivs?.[columnIndex]?.has(rowIndex) ? `${activeDivsClass}` : ''
                   }`,
                   divClass

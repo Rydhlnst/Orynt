@@ -9,7 +9,7 @@ export function FooterSection() {
   return (
     <footer
       id="footer"
-      className="relative z-30 scroll-mt-20 isolate overflow-hidden bg-[#121212] text-foreground md:scroll-mt-24"
+      className="relative z-30 scroll-mt-20 isolate overflow-hidden bg-[color:var(--landing-section-4-bg)] text-foreground md:scroll-mt-24"
     >
       <div className="pointer-events-none absolute bottom-[-80px] left-[-80px] h-64 w-64 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--text-primary)_10%,transparent)_0%,transparent_70%)] blur-2xl" />
       <div className="pointer-events-none absolute bottom-[-80px] right-[-80px] h-64 w-64 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--text-primary)_10%,transparent)_0%,transparent_70%)] blur-2xl" />

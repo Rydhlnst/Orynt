@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, Moon, Search, Sun } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -26,59 +26,7 @@ type NavProps = {
 
 function NavContent({ compact = false }: NavProps) {
   const [activeSection, setActiveSection] = useState("#opening-statement");
-  const [themeMode, setThemeMode] = useState<"dark" | "light">("dark");
   const [searchQuery, setSearchQuery] = useState("");
-
-  useEffect(() => {
-    const root = document.documentElement;
-    const savedTheme = window.localStorage.getItem("orynt-theme-mode");
-    const nextTheme = savedTheme === "light" ? "light" : "dark";
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setThemeMode(nextTheme);
-
-    if (nextTheme === "light") {
-      root.style.setProperty("color-scheme", "light");
-      root.style.setProperty("--background", "#f3f5f8");
-      root.style.setProperty("--foreground", "#1b1f2a");
-      root.style.setProperty("--primary", "#1b1f2a");
-      root.style.setProperty("--secondary", "#4b5565");
-      root.style.setProperty("--accent", "#1f2937");
-      root.style.setProperty("--link", "#1f2937");
-      root.style.setProperty("--text-primary", "#1b1f2a");
-      root.style.setProperty("--text-secondary", "#4b5565");
-      root.style.setProperty("--surface-1", "color-mix(in srgb, var(--background) 96%, black)");
-      root.style.setProperty("--surface-2", "color-mix(in srgb, var(--background) 90%, black)");
-      root.style.setProperty("--surface-3", "color-mix(in srgb, var(--background) 84%, black)");
-      root.style.setProperty("--border-subtle", "color-mix(in srgb, var(--text-primary) 14%, transparent)");
-      root.style.setProperty("--border-strong", "color-mix(in srgb, var(--text-primary) 20%, transparent)");
-      root.style.setProperty("--accent-hover", "color-mix(in srgb, var(--background) 84%, black)");
-      root.style.setProperty("--accent-hover-foreground", "var(--text-primary)");
-      return;
-    }
-
-    root.style.removeProperty("color-scheme");
-    root.style.removeProperty("--background");
-    root.style.removeProperty("--foreground");
-    root.style.removeProperty("--primary");
-    root.style.removeProperty("--secondary");
-    root.style.removeProperty("--accent");
-    root.style.removeProperty("--link");
-    root.style.removeProperty("--text-primary");
-    root.style.removeProperty("--text-secondary");
-    root.style.removeProperty("--surface-1");
-    root.style.removeProperty("--surface-2");
-    root.style.removeProperty("--surface-3");
-    root.style.removeProperty("--border-subtle");
-    root.style.removeProperty("--border-strong");
-    root.style.removeProperty("--accent-hover");
-    root.style.removeProperty("--accent-hover-foreground");
-  }, [themeMode]);
-
-  const toggleThemeMode = () => {
-    const nextTheme = themeMode === "dark" ? "light" : "dark";
-    setThemeMode(nextTheme);
-    window.localStorage.setItem("orynt-theme-mode", nextTheme);
-  };
 
   useEffect(() => {
     const validHrefs = new Set(documentSections.map((section) => section.href));
@@ -183,27 +131,7 @@ function NavContent({ compact = false }: NavProps) {
           ) : null}
         </nav>
       </ScrollArea>
-      {!compact ? (
-        <>
-          <Separator />
-          <div className="px-4 py-4">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={toggleThemeMode}
-              className="w-full justify-between"
-              aria-label={`Switch to ${themeMode === "dark" ? "light" : "dark"} mode`}
-            >
-              <span>{themeMode === "dark" ? "Dark Mode" : "Light Mode"}</span>
-              {themeMode === "dark" ? (
-                <Moon className="h-4 w-4" aria-hidden="true" />
-              ) : (
-                <Sun className="h-4 w-4" aria-hidden="true" />
-              )}
-            </Button>
-          </div>
-        </>
-      ) : null}
+      {!compact ? <Separator /> : null}
     </div>
   );
 }

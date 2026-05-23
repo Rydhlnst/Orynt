@@ -1,28 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
-  --background: #080808;
-  --foreground: #d6d6d6;
-  --primary: #d6d6d6;
-  --secondary: #8f8f8f;
-  --accent: #b0b0b0;
-  --link: #bdbdbd;
-  --text-primary: #d6d6d6;
-  --text-secondary: #8f8f8f;
+  color-scheme: light dark;
+  --background: #f4f5f7;
+  --foreground: #17181b;
+  --primary: #17181b;
+  --secondary: #50545d;
+  --accent: #252a33;
+  --link: #252a33;
+  --text-primary: #17181b;
+  --text-secondary: #50545d;
   --text-dim: color-mix(in srgb, var(--text-primary) 55%, transparent);
   --text-faint: color-mix(in srgb, var(--text-primary) 38%, transparent);
-  --surface-1: color-mix(in srgb, var(--background) 88%, white);
-  --surface-2: color-mix(in srgb, var(--background) 76%, white);
-  --surface-3: color-mix(in srgb, var(--background) 64%, white);
-  --border-subtle: color-mix(in srgb, var(--text-primary) 7%, transparent);
-  --border-strong: color-mix(in srgb, var(--text-primary) 14%, transparent);
+  --surface-1: color-mix(in srgb, var(--background) 96%, black);
+  --surface-2: color-mix(in srgb, var(--background) 90%, black);
+  --surface-3: color-mix(in srgb, var(--background) 84%, black);
+  --border-subtle: color-mix(in srgb, var(--text-primary) 12%, transparent);
+  --border-strong: color-mix(in srgb, var(--text-primary) 20%, transparent);
   --overlay-accent-1: color-mix(in srgb, var(--accent) 22%, transparent);
   --overlay-accent-2: color-mix(in srgb, var(--primary) 18%, transparent);
   --dot-glow: color-mix(in srgb, var(--accent) 45%, transparent);
-  --accent-hover: color-mix(in srgb, var(--background) 84%, white);
+  --accent-hover: color-mix(in srgb, var(--background) 82%, black);
   --accent-hover-foreground: var(--text-primary);
-  --beam-color: #ffffff;
+  --beam-color: #0f1116;
+  --landing-hero-bg: #eef1f4;
+  --landing-section-1-bg: #e9edf2;
+  --landing-section-2-bg: #e3e8ef;
+  --landing-section-3-bg: #dde3eb;
+  --landing-section-4-bg: #d7dee8;
+  --landing-footer-bg: #d1d9e4;
+  --glass-button-bg: color-mix(in srgb, var(--surface-1) 80%, transparent);
+  --glass-button-border: color-mix(in srgb, var(--text-primary) 18%, transparent);
+  --glass-button-shadow: 0 10px 28px color-mix(in srgb, var(--text-primary) 22%, transparent);
+  --grid-stroke: color-mix(in srgb, var(--text-primary) 6%, transparent);
+  --elevated-ring: color-mix(in srgb, var(--text-primary) 12%, transparent);
   --font-primary-family: var(--font-plus-jakarta-sans), system-ui, sans-serif;
   --font-heading-family: var(--font-plus-jakarta-sans), system-ui, sans-serif;
   --font-sans: var(--font-plus-jakarta-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
@@ -36,16 +47,96 @@
   --space-unit: 4px;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --beam-color: #000000;
+    color-scheme: dark;
+    --background: #080808;
+    --foreground: #d6d6d6;
+    --primary: #d6d6d6;
+    --secondary: #8f8f8f;
+    --accent: #b0b0b0;
+    --link: #bdbdbd;
+    --text-primary: #d6d6d6;
+    --text-secondary: #8f8f8f;
+    --surface-1: color-mix(in srgb, var(--background) 88%, white);
+    --surface-2: color-mix(in srgb, var(--background) 76%, white);
+    --surface-3: color-mix(in srgb, var(--background) 64%, white);
+    --border-subtle: color-mix(in srgb, var(--text-primary) 7%, transparent);
+    --border-strong: color-mix(in srgb, var(--text-primary) 14%, transparent);
+    --accent-hover: color-mix(in srgb, var(--background) 84%, white);
+    --beam-color: #ffffff;
+    --landing-hero-bg: #0a0a0a;
+    --landing-section-1-bg: #0e0e0e;
+    --landing-section-2-bg: #141414;
+    --landing-section-3-bg: #1a1a1a;
+    --landing-section-4-bg: #121212;
+    --landing-footer-bg: #080808;
+    --glass-button-bg: color-mix(in srgb, var(--surface-2) 64%, transparent);
+    --glass-button-border: color-mix(in srgb, var(--text-primary) 20%, transparent);
+    --glass-button-shadow: 0 10px 28px color-mix(in srgb, black 32%, transparent);
+    --grid-stroke: color-mix(in srgb, #5dcece 6%, transparent);
+    --elevated-ring: color-mix(in srgb, white 2%, transparent);
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --beam-color: #ffffff;
-  }
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #f4f5f7;
+  --foreground: #17181b;
+  --primary: #17181b;
+  --secondary: #50545d;
+  --accent: #252a33;
+  --link: #252a33;
+  --text-primary: #17181b;
+  --text-secondary: #50545d;
+  --surface-1: color-mix(in srgb, var(--background) 96%, black);
+  --surface-2: color-mix(in srgb, var(--background) 90%, black);
+  --surface-3: color-mix(in srgb, var(--background) 84%, black);
+  --border-subtle: color-mix(in srgb, var(--text-primary) 12%, transparent);
+  --border-strong: color-mix(in srgb, var(--text-primary) 20%, transparent);
+  --accent-hover: color-mix(in srgb, var(--background) 82%, black);
+  --beam-color: #0f1116;
+  --landing-hero-bg: #eef1f4;
+  --landing-section-1-bg: #e9edf2;
+  --landing-section-2-bg: #e3e8ef;
+  --landing-section-3-bg: #dde3eb;
+  --landing-section-4-bg: #d7dee8;
+  --landing-footer-bg: #d1d9e4;
+  --glass-button-bg: color-mix(in srgb, var(--surface-1) 80%, transparent);
+  --glass-button-border: color-mix(in srgb, var(--text-primary) 18%, transparent);
+  --glass-button-shadow: 0 10px 28px color-mix(in srgb, var(--text-primary) 22%, transparent);
+  --grid-stroke: color-mix(in srgb, var(--text-primary) 6%, transparent);
+  --elevated-ring: color-mix(in srgb, var(--text-primary) 12%, transparent);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #080808;
+  --foreground: #d6d6d6;
+  --primary: #d6d6d6;
+  --secondary: #8f8f8f;
+  --accent: #b0b0b0;
+  --link: #bdbdbd;
+  --text-primary: #d6d6d6;
+  --text-secondary: #8f8f8f;
+  --surface-1: color-mix(in srgb, var(--background) 88%, white);
+  --surface-2: color-mix(in srgb, var(--background) 76%, white);
+  --surface-3: color-mix(in srgb, var(--background) 64%, white);
+  --border-subtle: color-mix(in srgb, var(--text-primary) 7%, transparent);
+  --border-strong: color-mix(in srgb, var(--text-primary) 14%, transparent);
+  --accent-hover: color-mix(in srgb, var(--background) 84%, white);
+  --beam-color: #ffffff;
+  --landing-hero-bg: #0a0a0a;
+  --landing-section-1-bg: #0e0e0e;
+  --landing-section-2-bg: #141414;
+  --landing-section-3-bg: #1a1a1a;
+  --landing-section-4-bg: #121212;
+  --landing-footer-bg: #080808;
+  --glass-button-bg: color-mix(in srgb, var(--surface-2) 64%, transparent);
+  --glass-button-border: color-mix(in srgb, var(--text-primary) 20%, transparent);
+  --glass-button-shadow: 0 10px 28px color-mix(in srgb, black 32%, transparent);
+  --grid-stroke: color-mix(in srgb, #5dcece 6%, transparent);
+  --elevated-ring: color-mix(in srgb, white 2%, transparent);
 }
 
 @theme inline {
@@ -160,4 +251,9 @@ li,
   to {
     transform: translateX(0);
   }
+}
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 }
