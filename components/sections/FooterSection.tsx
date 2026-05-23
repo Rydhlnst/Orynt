@@ -72,6 +72,7 @@ export function FooterSection() {
               <p className="mb-3 font-semibold text-[color:var(--text-primary)]">Company</p>
               <div className="space-y-2">
                 <p>{oryntContent.footer.brand}</p>
+                
                 <p>{oryntContent.footer.subtitle}</p>
                 <Link href="#top" className="transition-colors hover:text-[color:var(--text-primary)]">
                   Opening Statement
@@ -87,6 +88,7 @@ export function FooterSection() {
                   All rights reserved
                 </p>
                 <p>{oryntContent.footer.bottomText}</p>
+                
               </div>
             </div>
 
@@ -112,6 +114,9 @@ export function FooterSection() {
 
         <div className="mt-10 flex flex-col justify-between gap-3 border-t border-[color:var(--border-subtle)]/70 pt-6 text-sm text-[color:var(--text-secondary)] md:flex-row md:items-center">
           <p className="font-medium">{oryntContent.footer.brand}</p>
+          <p className="font-mono text-xs text-[color:var(--text-dim)] break-all">
+            CA: 8qwLsrWU9VhWXEpFhK5jH9EWxeMNnaGYNzr5CjFcpump
+          </p>
           <p>
             (C) {year} {oryntContent.footer.brand}. {oryntContent.footer.subtitle}
           </p>

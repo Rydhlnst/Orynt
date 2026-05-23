@@ -41,9 +41,30 @@ export function Navbar() {
               variant="outline"
               // size="sm"
               onClick={() => jumpTo("documentation")}
-              className="h-10 rounded-full border border-[color:var(--glass-button-border)] bg-[color:var(--glass-button-bg)] px-5 text-xs font-medium text-[color:var(--text-primary)] shadow-[var(--glass-button-shadow)] backdrop-blur-md transition-colors hover:bg-[color:var(--surface-2)] hover:text-[color:var(--text-primary)] md:text-sm"
+              className="hidden h-10 rounded-full border border-[color:var(--glass-button-border)] bg-[color:var(--glass-button-bg)] px-5 text-xs font-medium text-[color:var(--text-primary)] shadow-[var(--glass-button-shadow)] backdrop-blur-md transition-colors hover:bg-[color:var(--surface-2)] hover:text-[color:var(--text-primary)] sm:inline-flex md:text-sm"
             >
               Documentation
+            </Button>
+          </Link>
+          <Link
+            href="https://pump.fun/coin/8qwLsrWU9VhWXEpFhK5jH9EWxeMNnaGYNzr5CjFcpump"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant="outline"
+              // size="sm"
+              className="h-9 whitespace-nowrap rounded-full border border-[color:var(--glass-button-border)] bg-[color:var(--glass-button-bg)] px-3 text-[11px] font-medium text-[color:var(--text-primary)] shadow-[var(--glass-button-shadow)] backdrop-blur-md transition-colors hover:bg-[color:var(--surface-2)] hover:text-[color:var(--text-primary)] sm:h-10 sm:px-5 sm:text-xs md:text-sm"
+            >
+              <Image
+                src="/pump-fun.svg"
+                alt="Pump.fun logo"
+                width={16}
+                height={16}
+                className="mr-2 inline-block h-4 w-4 object-contain"
+                priority
+              />
+              Pump Fun
             </Button>
           </Link>
 
