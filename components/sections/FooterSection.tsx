@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FaXTwitter } from "react-icons/fa6";
 import { BookOpen, House, Shield } from "lucide-react";
 import { oryntContent } from "@/data/orynt-content";
+import { FaTelegram, FaTelegramPlane } from "react-icons/fa";
 
 export function FooterSection() {
   const year = new Date().getFullYear();
@@ -43,6 +44,15 @@ export function FooterSection() {
                 aria-label="X Official"
               >
                 <FaXTwitter className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="https://t.me/oryntcommunity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[color:var(--surface-2)]/78 text-[color:var(--text-primary)] transition-colors hover:bg-[color:var(--surface-3)]"
+                aria-label="Telegram Community"
+              >
+                <FaTelegramPlane className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link
                 href="/documentation"
