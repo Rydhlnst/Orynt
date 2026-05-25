@@ -55,7 +55,9 @@ export function FooterSection() {
                 <FaTelegramPlane className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link
-                href="/documentation"
+                href="https://docs.oryntcore.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[color:var(--surface-2)]/78 text-[color:var(--text-primary)] transition-colors hover:bg-[color:var(--surface-3)]"
                 aria-label="Documentation"
               >
@@ -105,7 +107,12 @@ export function FooterSection() {
             <div>
               <p className="mb-3 font-semibold text-[color:var(--text-primary)]">Resources</p>
               <div className="space-y-2">
-                <Link href="/documentation" className="transition-colors hover:text-[color:var(--text-primary)]">
+                <Link
+                  href="https://docs.oryntcore.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-[color:var(--text-primary)]"
+                >
                   Documentation
                 </Link>
                 <Link
